@@ -1,12 +1,12 @@
 default:
-	docker build -t atyenoria/cron . & docker run -it atyenoria/cron zsh
+	docker build -t atyenoria/cron-base . & docker run -it atyenoria/cron-base zsh
 s:
-	docker run -it --rm atyenoria/cron zsh
+	docker run -it --rm atyenoria/cron-base zsh
 b:
-	docker build -t atyenoria/cron .
+	docker build -t atyenoria/cron-base .
 r:
-	 docker  run -it -d --name cron atyenoria/cron
+	 docker  run -it -d --name cron-base atyenoria/cron-base
 d:
-	docker rm -f cron
+	docker rm -f cron-base
 e:
-	docker exec -it cron zsh
+	docker exec -it cron-base zsh
