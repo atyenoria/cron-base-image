@@ -24,7 +24,7 @@ ADD .vimrc /root/.vimrc
 
 
 
-ENV EXT_PACKAGES "cron man git mysql-client"
+ENV EXT_PACKAGES "cron man git mysql-client jq"
 RUN apt-get update && \
     apt-get -y install $EXT_PACKAGES
 
