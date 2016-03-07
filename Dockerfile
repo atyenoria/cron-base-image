@@ -24,7 +24,7 @@ ADD .vimrc /root/.vimrc
 
 
 
-ENV EXT_PACKAGES "cron man git mysql-client jq"
+ENV EXT_PACKAGES "cron man git mysql-client jq dnsutils unzip zip"
 RUN apt-get update && \
     apt-get -y install $EXT_PACKAGES
 
