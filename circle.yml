@@ -6,7 +6,7 @@ machine:
   services:
     - docker
   environment:
-    IMAGE_NAME: consul-base
+    IMAGE_NAME: cron-base
 
 test:
   override:
