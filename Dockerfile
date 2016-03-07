@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 FROM debian:jessie
 
 
@@ -36,23 +35,3 @@ RUN useradd laravel -d /laravel
 RUN mkdir -p /laravel/.ssh
 RUN chmod 700 /laravel/.ssh
 RUN ln -sf /usr/share/zoneinfo/Japan /etc/localtime
-=======
-FROM alpine:3.2
-
-ENV CONSUL_VERSION 0.6.3
-ENV CONSUL_SHA256 b0532c61fec4a4f6d130c893fd8954ec007a6ad93effbe283a39224ed237e250
-
-RUN apk --update add curl ca-certificates && \
-    curl -Ls https://circle-artifacts.com/gh/andyshinn/alpine-pkg-glibc/6/artifacts/0/home/ubuntu/alpine-pkg-glibc/packages/x86_64/glibc-2.21-r2.apk > /tmp/glibc-2.21-r2.apk && \
-    apk add --allow-untrusted /tmp/glibc-2.21-r2.apk && \
-    rm -rf /tmp/glibc-2.21-r2.apk /var/cache/apk/*
-ADD https://releases.hashicorp.com/consul/${CONSUL_VERSION}/consul_${CONSUL_VERSION}_linux_amd64.zip /tmp/consul.zip
-RUN echo "${CONSUL_SHA256}  /tmp/consul.zip" > /tmp/consul.sha256 \
-  && sha256sum -c /tmp/consul.sha256 \
-  && cd /bin \
-  && unzip /tmp/consul.zip \
-  && chmod +x /bin/consul \
-  && rm /tmp/consul.zip
-
-RUN apk add --update mysql-client && rm -rf /var/cache/apk/*
->>>>>>> a6cb8164c2d0dd15f487926d8f0a503eb96d9be1
