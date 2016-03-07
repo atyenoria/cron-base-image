@@ -24,9 +24,10 @@ ADD .vimrc /root/.vimrc
 
 
 
-ENV EXT_PACKAGES "cron man git mysql-client jq dnsutils unzip zip"
-RUN apt-get update && \
+RUN EXT_PACKAGES="cron man git mysql-client jq dnsutils unzip zip s3cmd" && \
+    apt-get update && \
     apt-get -y install $EXT_PACKAGES
+
 
 
 
