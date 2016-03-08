@@ -1,12 +1,12 @@
 default:
-	docker build -t atyenoria/consul-base . & docker run -it atyenoria/consul-base zsh
+	docker build -t atyenoria/cron-base . & docker run -it atyenoria/cron-base zsh
 s:
-	docker run -it --rm atyenoria/consul-base zsh
+	docker run -it --rm atyenoria/cron-base zsh
 b:
-	docker build -t atyenoria/consul-base .
+	docker build -t atyenoria/cron-base .
 r:
-	 docker  run -it -d --name consul-base atyenoria/consul-base
+	 docker  run -it -d --name cron-base atyenoria/cron-base
 d:
-	docker rm -f consul-base
+	docker rm -f cron-base
 e:
-	docker exec -it consul-base zsh
+	docker exec -it cron-base zsh

@@ -1,7 +1,5 @@
 FROM debian:jessie
 
-
-
 ENV DEBIAN_FRONTEND noninteractive
 ENV ZSH_DEP_PACKAGE  "software-properties-common build-essential"
 RUN apt-get update && apt-get install -y $ZSH_DEP_PACKAGE
@@ -24,11 +22,16 @@ ADD .vimrc /root/.vimrc
 
 
 
-RUN EXT_PACKAGES="cron man git mysql-client jq dnsutils unzip zip s3cmd" && \
+RUN EXT_PACKAGES="cron man git jq dnsutils unzip zip s3cmd redis-tools" && \
     apt-get update && \
     apt-get -y install $EXT_PACKAGES
 
 
+
+
+RUN apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 0xcbcb082a1bb943db
+RUN add-apt-repository 'deb [arch=amd64,i386] http://ftp.yz.yamagata-u.ac.jp/pub/dbms/mariadb/repo/10.1/debian jessie main'
+RUN apt-get update && apt-get install -y mariadb-client
 
 
 #backup user setting
