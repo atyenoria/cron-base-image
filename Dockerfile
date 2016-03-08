@@ -22,7 +22,7 @@ ADD .vimrc /root/.vimrc
 
 
 
-RUN EXT_PACKAGES="cron man git jq dnsutils unzip zip s3cmd redis-tools" && \
+RUN EXT_PACKAGES="cron man git wget jq dnsutils unzip zip s3cmd redis-tools" && \
     apt-get update && \
     apt-get -y install $EXT_PACKAGES
 
@@ -39,3 +39,10 @@ RUN useradd laravel -d /laravel
 RUN mkdir -p /laravel/.ssh
 RUN chmod 700 /laravel/.ssh
 RUN ln -sf /usr/share/zoneinfo/Japan /etc/localtime
+
+
+
+RUN wget https://releases.hashicorp.com/consul-template/0.13.0/consul-template_0.13.0_linux_amd64.zip -O consul-template.zip && \
+    unzip consul-template.zip && \
+    mv consul-template /usr/local/bin && \
+    rm consul-template.zip
