@@ -135,6 +135,6 @@ RUN mkdir -p "$GEM_HOME" "$BUNDLE_BIN" \
 
 
 ADD redis-trib /usr/local/bin
-
+RUN gem install redis
 RUN chmod +x /usr/local/bin/redis-trib
 
