@@ -22,9 +22,11 @@ ADD .vimrc /root/.vimrc
 
 
 
-RUN EXT_PACKAGES="cron man git wget jq dnsutils unzip zip s3cmd redis-tools" && \
+
+RUN EXT_PACKAGES="cron man git wget jq dnsutils unzip zip s3cmd redis-tools nmap" && \
     apt-get update && \
     apt-get -y install $EXT_PACKAGES
+
 
 
 
@@ -46,8 +48,6 @@ RUN wget https://releases.hashicorp.com/consul-template/0.13.0/consul-template_0
     unzip consul-template.zip && \
     mv consul-template /usr/local/bin && \
     rm consul-template.zip
-
-
 
 
 
