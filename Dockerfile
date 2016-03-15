@@ -138,3 +138,28 @@ ADD redis-trib /usr/local/bin
 RUN gem install redis
 RUN chmod +x /usr/local/bin/redis-trib
 
+
+
+
+
+RUN wget https://github.com/AcalephStorage/consul-alerts/releases/download/v0.3.2/consul-alerts-0.3.2-linux-amd64.tar && \
+    tar -xf consul-alerts-0.3.2-linux-amd64.tar && \
+    mv consul-alerts /bin
+
+
+
+
+RUN curl -L https://releases.hashicorp.com/consul/0.6.3/consul_0.6.3_linux_amd64.zip -o consul.zip && \
+    unzip consul.zip && \
+    mv consul /bin && \
+    rm -rf consul.zip
+
+
+
+
+RUN curl -L https://releases.hashicorp.com/vault/0.5.1/vault_0.5.1_linux_amd64.zip -o vault.zip && \
+    unzip vault.zip && \
+    mv vault /bin && \
+    rm -rf vault.zip
+
+
