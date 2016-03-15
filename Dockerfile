@@ -156,10 +156,15 @@ RUN curl -L https://releases.hashicorp.com/consul/0.6.3/consul_0.6.3_linux_amd64
 
 
 
-
 RUN curl -L https://releases.hashicorp.com/vault/0.5.1/vault_0.5.1_linux_amd64.zip -o vault.zip && \
     unzip vault.zip && \
     mv vault /bin && \
     rm -rf vault.zip
+
+
+RUN wget https://github.com/prometheus/prometheus/releases/download/0.17.0/prometheus-0.17.0.linux-amd64.tar.gz && \
+    tar -xf prometheus-0.17.0.linux-amd64.tar.gz && \
+    mv prometheus-0.17.0.linux-amd64/prometheus /bin && \
+    mv prometheus-0.17.0.linux-amd64/promtool /bin
 
 
