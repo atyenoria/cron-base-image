@@ -1,8 +1,9 @@
 FROM debian:jessie
 
 ENV DEBIAN_FRONTEND noninteractive
-ENV ZSH_DEP_PACKAGE  "software-properties-common build-essential"
-RUN apt-get update && apt-get install -y $ZSH_DEP_PACKAGE
+
+RUN ZSH_DEP_PACKAGE="software-properties-common build-essential" && \
+    apt-get update && apt-get install -y $ZSH_DEP_PACKAGE
 RUN apt-get install -y zsh git
 RUN git clone git://github.com/robbyrussell/oh-my-zsh.git /root/.oh-my-zsh \
     && chsh -s /bin/zsh
